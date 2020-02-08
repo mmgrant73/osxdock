@@ -2,7 +2,7 @@
 # OSX Dock:
 
 ### What is it?
-OSX Dock - is a docking bar like the one on the OS operation system that can be used on a website.  It is easy to 
+OSX Dock - is a custom web component which is like the docking bar on the MacOS operation system that can be used on a website.  It is easy to 
 use and set up.
 
 ![Alt text](https://github.com/mmgrant73/osxdock/blob/master/osxdock.png?raw=true "Image-osxdock")
