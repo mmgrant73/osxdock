@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" style="" class=" js no-touch svg inlinesvg svgclippaths no-ie8compat"><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OSX DOCK Web Component</title>
+<style type="text/css">
+    body {
+        background-color: rgb(60, 60, 60);
+    }
+    h1 {
+        color: white;
+        text-align: center;
+    }
+    ul,
+    ol,
+    dl {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 1.25em;
+        list-style-position: outside;
+        font-family: inherit
+    }
+    ul,
+    ol {
+        margin-left: 0
+    }
+    ul.no-bullet,
+    ol.no-bullet {
+        margin-left: 0
+    }
+    ul li ul,
+    ul li ol {
+        margin-left: 1.25em;
+        margin-bottom: 0;
+        font-size: 1em
+    }
+    ul.square li ul,
+    ul.circle li ul,
+    ul.disc li ul {
+        list-style: inherit
+    }
+    ul.square {
+        list-style-type: square
+    }
+    ul.circle {
+        list-style-type: circle
+    }
+    ul.disc {
+        list-style-type: disc
+    } 
+    ul.no-bullet {
+        list-style: none
+    }
+    ol li ul,
+    ol li ol {
+        margin-left: 1.25em;
+        margin-bottom: 0
+    }
+  
+  /* Dock styles */
+  
+  div.cap { display: block; height: 100px; width: 40px; background: url('./osxdock/dock-background-left.png') bottom left no-repeat; }
+    
+        div.cap.left { position: absolute; bottom: 0px; left: 0px; }
+        div.cap.right { background-position: right bottom; position: absolute; top: 0px; right: 0px; }
+        ul.osx-dock { display: inline-block; height: 130px; padding: 0 40px 0 0; background: url('./osxdock/dock-background-left.png') no-repeat right bottom; overflow: hidden; margin: 0 0 0 40px; }
+        ul.osx-dock li { display: block; position: relative; float: left; width: 50px; height: 50px; margin: 60px 0 4px 0; -webkit-transition: 0.15s linear; -webkit-transition-property: -webkit-transform margin; text-align: center; }
+
+        ul.osx-dock li a { display: block; height: 50px; padding: 0 1px; -webkit-transition: 0.15s linear; -webkit-transition-property: -webkit-transform margin; margin: 0;
+            -webkit-box-reflect: below 2px
+            -webkit-gradient(linear, left top, left bottom, from(transparent),
+            color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+        }
+        ul.osx-dock li a img { width: 48px; }
+
+        ul.osx-dock li:hover { 
+            margin-left: 9px; margin-right: 9px;
+            z-index: 200;
+        }
+        ul.osx-dock li:hover a { 
+            -webkit-transform-origin: center bottom;
+            -webkit-transform: scale(1.5);
+        }
+        ul.osx-dock li.nearby { 
+            margin-left: 6px; margin-right: 6px;
+            z-index: 100;
+        }
+        ul.osx-dock li.nearby a { 
+            -webkit-transform-origin: center bottom;
+            -webkit-transform: scale(1.25);
+        }
+
+        ul.osx-dock li span { background: rgba(0,0,0,0.75); position: absolute; bottom: 80px; margin: 0 auto; display: none; width: auto; font-size: 11px; font-weight: bold; padding: 3px 6px; -webkit-border-radius: 6px; color: #fff; }
+        ul.osx-dock li:hover span { display: block; }
+
+        div#dockContainer { position: fixed; bottom: 12px; height: 120px; padding: 50px 0 0; text-align: center; -webkit-border-radius: 6px; -moz-border-radius: 6px; width: 100%; line-height: 1; z-index: 100; }
+        div#dockWrapper { width: auto; display: inline-block; position: relative; border-bottom: solid 2px rgba(255,255,255,.35); line-height: 0; }
+        #dockContainer, #dockContainer * {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box }
+</style>
+
+</head>
+
+<body>
+
+<section role="main" class="body">
+
+<h1>Example of the OSX Dock Web Component</h1>
+<div id="dockContainer">
+<div id="dockWrapper">
+<div class="cap left"></div>
+<ul class="osx-dock">
+<li class="active">
+<span>ZURB</span>
+<a href="http://www.zurb.com/" title="ZURB"><img alt="Zurb icon" src="./osxdock/zurb-icon.png"></a>
+</li>
+<li>
+<span>LinkedIn</span>
+<a href="http://www.linkedin.com/" title="LinkedIn"><img alt="Linkedin icon" src="./osxdock/linkedin-icon.png"></a>
+</li>
+<li>
+<span>Notable</span>
+<a href="http://www.notableapp.com/" title="Notable"><img alt="Notable icon" src="./osxdock/notable-icon.png"></a>
+</li>
+<li>
+<span>last.fm</span>
+<a href="https://www.last.fm/" title="Last.fm"><img alt="Lastfm icon" src="./osxdock/lastfm-icon.png"></a>
+</li>
+<li>
+<span>Facebook</span>
+<a href="https://www.facebook.com/" title="Facebook"><img alt="Facebook icon" src="./osxdock/facebook-icon.png"></a>
+</li>
+<li>
+<span>Instagram</span>
+<a href="https://www.instagram.com/" title="Instagram"><img alt="Instagram icon" src="./osxdock/instagram.png"></a>
+</li>
+<li>
+<span>WhatsApp</span>
+<a href="http://www.whatsapp.com/" title="Whatsapp"><img alt="Whats Up icon" src="./osxdock/whatsup.png"></a>
+</li>
+<li class="">
+<span>GitHub</span>
+<a href="https://www.github.com/" title="Github"><img alt="Github icon" src="./osxdock/github.png"></a>
+</li>
+<li class="">
+<span>Twitter</span>
+<a href="https://www.twitter.com/" title="Twitter"><img alt="Twitter icon" src="./osxdock/twitter.png"></a>
+</li>
+<li class="">
+<span>Google</span>
+<a href="https://www.google.com/" title="Google"><img alt="Google icon" src="./osxdock/google-icon.png"></a>
+</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
+
+<!--
+Usage:
+<dock>
+    <item href="www.facebook.com" src="facebook.png">Facebook</item>
+    <item href="www.google.com" src="google.png">Google</item>
+    <item href="www.github.com" src="github.png">Github</item>
+</dock>
+-->

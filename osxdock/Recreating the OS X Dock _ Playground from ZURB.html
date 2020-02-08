@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://zurb.com/playground/osx-dock -->
+<html lang="en" style="" class=" js no-touch svg inlinesvg svgclippaths no-ie8compat"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="CSS osx dock, CSS3 dock, mac dock html and css">
+<meta name="description" content="We experiment with what you can do using CSS3 and a tiny bit of javascript.">
+<meta name="author" content=" ZURB, inc.">
+<meta name="copyright" content="ZURB, inc. Copyright (c) 2020">
+<meta name="verify-v1" content="FIGJ61mNGm8gsksgklVzG71j7+Q0u6zTDF+VE9vA/8k=">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://zurb.com/playground/assets/apple-icons/touch-icon-iphone-62abe0cdf7cdb268f32461f9e48a23c4.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://zurb.com/playground/assets/apple-icons/touch-icon-ipad-7b1c7683ce9b947aef5438684d8866fd.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://zurb.com/playground/assets/apple-icons/touch-icon-iphone-retina-82c632d82262f8d8a739f24a7c26da07.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://zurb.com/playground/assets/apple-icons/touch-icon-ipad-retina-7482693019c5e4d3e8d1feffe719e6c7.png">
+<link rel="shortcut icon" href="https://zurb.com/playground/assets/icons/favicon-19fc393db3d5b6bb59dcd3d449ff7d5e.ico">
+<title>Recreating the OS X Dock | Playground from ZURB</title>
+<script type="text/javascript" async="" src="./Recreating the OS X Dock _ Playground from ZURB_files/d945f04ff5e68057c85f5323b46f185efb3826b3.1.js.download"></script><script type="text/javascript" async="" src="./Recreating the OS X Dock _ Playground from ZURB_files/i.js.download"></script><script async="" src="./Recreating the OS X Dock _ Playground from ZURB_files/analytics.js.download"></script><script>
+      var categoryId = null;
+    </script>
+<link href="./Recreating the OS X Dock _ Playground from ZURB_files/application-9ec460aae48a6bed0de872f2ed0bcce3.css" media="screen" rel="stylesheet">
+<link href="./Recreating the OS X Dock _ Playground from ZURB_files/foundicons-06a2aad07c2e05db7e3b1c88a0cc0b2a.css" media="screen" rel="stylesheet">
+<script src="./Recreating the OS X Dock _ Playground from ZURB_files/custom.modernizr-fce4dc4d109f12709c12011404f30b78.js.download"></script>
+<script type="text/javascript">
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2195009-29', 'auto'); // Playground
+  ga('create', 'UA-2195009-43', 'auto', {'name': 'studiosLevel'}); // Studios
+  ga('create', 'UA-2195009-33', 'auto', {'name': 'universityLevel'}); // University
+  ga('create', 'UA-2195009-2', 'auto', {'name': 'zurbLevel'}); // ZURB
+  
+  ga('send', 'pageview'); // Playground
+  ga('studiosLevel.send', 'pageview'); // Studios
+  ga('universityLevel.send', 'pageview'); // University
+  ga('zurbLevel.send', 'pageview'); // ZURB
+
+</script>
+<meta content="authenticity_token" name="csrf-param">
+<meta content="gqgBgPlC/teOkjqJpCA9IYfXeWk1am+Al3U9Fn3tvTU=" name="csrf-token">
+<meta class="foundation-mq-small"><meta class="foundation-mq-medium"><meta class="foundation-mq-large"><style></style></head>
+<body class="off-canvas hide-extras antialiased dark-page" style="">
+
+<section role="main" class="body">
+
+<nav class="global-nav show-for-small">
+<ul class="title-area">
+<li class="name">
+<h1><a class="sidebar-button show-for-small services" id="sidebarButton" href="https://zurb.com/playground/osx-dock#sidebar"><img alt="Menu icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/menu-icon-05ed101790615db3eeadb7a569cb56d0.png">ZURB</a></h1>
+</li>
+</ul>
+</nav>
+
+<nav class="global-nav top-bar hide-for-small">
+<ul class="title-area">
+<li class="name">
+<h1><a href="https://zurb.com/">ZURB</a></h1>
+</li>
+<li class="toggle-topbar"><a href="https://zurb.com/playground/osx-dock#"></a></li>
+</ul>
+
+<section class="top-bar-section">
+<ul class="right">
+<li><a href="https://zurb.com/about">About</a></li>
+<li><a href="https://zurb.com/services">Services</a></li>
+<li><a href="https://zurb.com/blog">Blog</a></li>
+<li><a class="current" href="https://zurb.com/playground">Sparks</a></li>
+<li><a href="https://zurb.com/soapbox">News &amp; Events</a></li>
+</ul>
+</section></nav>
+
+
+<style type="text/css">
+  section[role="main"] {
+    background: #000 url(http://zurb.com/playground/uploads/upload/upload/88/maelstrom.png) center -86px no-repeat;
+  }
+  #osxdock-page {
+    color: #fff;
+    padding-bottom: 2em;
+    margin-bottom: -2em;
+  }
+    #osxdock-page h1, #osxdock-page h2 {
+      color: #fff;
+    }
+  
+  div#sidebarAd.cleanslate {
+    background: rgba(0,0,0,0.5) !important;
+    color: #fff !important;
+  }
+    div#sidebarAd.cleanslate .ad-sponsor {
+      color: #ccc;
+    }
+  .zurb-footer-top {
+    background: #222;
+  }
+  
+  /* Dock styles */
+  
+  div.cap { display: block; height: 100px; width: 40px; background: url(/playground/playground/osx-dock/dock-background-left.png) bottom left no-repeat; }
+  	
+		div.cap.left { position: absolute; bottom: 0px; left: 0px; }
+		div.cap.right { background-position: right bottom; position: absolute; top: 0px; right: 0px; }
+		ul.osx-dock { display: inline-block; height: 130px; padding: 0 40px 0 0; background: url(/playground/playground/osx-dock/dock-background-left.png) no-repeat right bottom; overflow: hidden; margin: 0 0 0 40px; }
+		ul.osx-dock li { display: block; position: relative; float: left; width: 50px; height: 50px; margin: 60px 0 4px 0; -webkit-transition: 0.15s linear; -webkit-transition-property: -webkit-transform margin; text-align: center; }
+		
+		ul.osx-dock li a { display: block; height: 50px; padding: 0 1px; -webkit-transition: 0.15s linear; -webkit-transition-property: -webkit-transform margin; margin: 0;
+		-webkit-box-reflect: below 2px
+			-webkit-gradient(linear, left top, left bottom, from(transparent),
+			color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+		}
+		ul.osx-dock li a img { width: 48px; }
+		
+		ul.osx-dock li:hover { 
+			margin-left: 9px; margin-right: 9px;
+			z-index: 200;
+		}
+		ul.osx-dock li:hover a { 
+			-webkit-transform-origin: center bottom;
+			-webkit-transform: scale(1.5);
+		}
+		ul.osx-dock li.nearby { 
+			margin-left: 6px; margin-right: 6px;
+			z-index: 100;
+		}
+		ul.osx-dock li.nearby a { 
+			-webkit-transform-origin: center bottom;
+			-webkit-transform: scale(1.25);
+		}
+
+		ul.osx-dock li span { background: rgba(0,0,0,0.75); position: absolute; bottom: 80px; margin: 0 auto; display: none; width: auto; font-size: 11px; font-weight: bold; padding: 3px 6px; -webkit-border-radius: 6px; color: #fff; }
+		ul.osx-dock li:hover span { display: block; }
+		
+		div#dockContainer { position: fixed; bottom: 12px; height: 120px; padding: 50px 0 0; text-align: center; -webkit-border-radius: 6px; -moz-border-radius: 6px; width: 100%; line-height: 1; z-index: 100; }
+		div#dockWrapper { width: auto; display: inline-block; position: relative; border-bottom: solid 2px rgba(255,255,255,.35); line-height: 0; }
+    #dockContainer, #dockContainer * {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box }
+</style>
+<div id="osxdock-page" class="dark-code">
+<div class="row project-header">
+<div class="large-8 columns">
+<h1>Recreating the OS X Dock</h1>
+<p class="lead">We take a basic list of links and turn them into an awesome OS X dock of icons.</p>
+<p class="faded">Note: Demo works in Safari 4.x and Chrome 5.</p>
+</div>
+<div class="large-4 columns">
+<script id="ZURBsmallAd" data-orientation="" src="./Recreating the OS X Dock _ Playground from ZURB_files/ZURBsmallAd.js.download"></script>
+</div>
+</div>
+<div class="row">
+<div class="large-7 columns">
+<h2>The CSS</h2>
+<div class="css"><div class="CodeRay">
+<div class="code"><pre><span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span> <span class="tag">a</span> {
+  <span class="key">display</span>: <span class="value">block</span>;
+  <span class="key">height</span>: <span class="float">50px</span>;
+  <span class="key">padding</span>: <span class="float">0</span> <span class="float">1px</span>;
+  <span class="key">margin</span>: <span class="float">0</span>;
+  <span class="key">-webkit-transition</span>: <span class="float">0.15s</span> <span class="value">linear</span>;
+  <span class="key">-webkit-transition-property</span>: <span class="value">-webkit-transform</span> <span class="value">margin</span>;
+  <span class="key">-webkit-box-reflect</span>: <span class="value">below</span> <span class="float">2px</span>; <span class="error">-</span><span class="error">w</span><span class="error">e</span><span class="error">b</span><span class="error">k</span><span class="error">i</span><span class="error">t</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="key">linear</span>, <span class="key">left</span> <span class="key">top</span>, <span class="key">left</span> <span class="key">bottom</span>, <span class="error">f</span><span class="error">r</span><span class="error">o</span><span class="error">m</span>(<span class="key">transparent</span>), <span class="error">c</span><span class="error">o</span><span class="error">l</span><span class="error">o</span><span class="error">r</span><span class="error">-</span><span class="error">s</span><span class="error">t</span><span class="error">o</span><span class="error">p</span>(<span class="float">0.45</span>, <span class="key">transparent</span>), <span class="error">t</span><span class="error">o</span>(<span class="color">rgba(255, 255, 255, 0.25)</span>));
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span> <span class="tag">a</span> <span class="tag">img</span> {
+  <span class="key">width</span>: <span class="float">48px</span>;
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span><span class="pseudo-class">:hover</span> {
+  <span class="key">margin-left</span>: <span class="float">9px</span>; <span class="key">margin-right</span>: <span class="float">9px</span>;
+  <span class="key">z-index</span>: <span class="float">200</span>;
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span><span class="pseudo-class">:hover</span> <span class="tag">a</span> {
+  <span class="key">-webkit-transform-origin</span>: <span class="value">center</span> <span class="value">bottom</span>;
+  <span class="key">-webkit-transform</span>: <span class="error">s</span><span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">e</span>(<span class="float">1.5</span>);
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span><span class="class">.nearby</span> {
+  <span class="key">margin-left</span>: <span class="float">6px</span>; <span class="key">margin-right</span>: <span class="float">6px</span>;
+  <span class="key">z-index</span>: <span class="float">100</span>;
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span><span class="class">.nearby</span> <span class="tag">a</span> {
+  <span class="key">-webkit-transform-origin</span>: <span class="value">center</span> <span class="value">bottom</span>;
+  <span class="key">-webkit-transform</span>: <span class="error">s</span><span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">e</span>(<span class="float">1.25</span>);
+}
+ 
+<span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span> <span class="tag">span</span> {
+ <span class="key">background</span>: <span class="color">rgba(0,0,0,0.75)</span>;
+ <span class="key">position</span>: <span class="value">absolute</span>;
+ <span class="key">bottom</span>: <span class="float">80px</span>;
+ <span class="key">margin</span>: <span class="float">0</span> <span class="value">auto</span>;
+ <span class="key">display</span>: <span class="value">none</span>;
+ <span class="key">width</span>: <span class="value">auto</span>;
+ <span class="key">font-size</span>: <span class="float">11px</span>;
+ <span class="key">font-weight</span>: <span class="value">bold</span>;
+ <span class="key">padding</span>: <span class="float">3px</span> <span class="float">6px</span>;
+ <span class="key">-webkit-border-radius</span>: <span class="float">6px</span>;
+ <span class="key">color</span>: <span class="color">#fff</span>;
+}
+ <span class="tag">ul</span><span class="class">.osx-dock</span> <span class="tag">li</span><span class="pseudo-class">:hover</span> <span class="tag">span</span> {
+ <span class="key">display</span>: <span class="value">block</span>;
+}</pre></div>
+</div>
+</div>
+</div>
+<div class="large-5 columns">
+<h2>The HTML</h2>
+<div class="html"><div class="CodeRay">
+<div class="code"><pre><span class="tag">&lt;ul</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">osx-dock</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">active</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>ZURB<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.zurb.com</span><span class="delimiter">"</span></span> <span class="attribute-name">title</span>=<span class="string"><span class="delimiter">"</span><span class="content">ZURB</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">/playground/osx-dock/zurb-icon.png</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span><span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;span&gt;</span>LinkedIn<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://www.linkedin.com</span><span class="delimiter">"</span></span> <span class="attribute-name">title</span>=<span class="string"><span class="delimiter">"</span><span class="content">LinkedIn</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">/playground/osx-dock/linkedin-icon.png</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span><span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="large-12 columns">
+<p class="faded">Copyright ZURB, freely available for distribution under the MIT license.</p>
+</div>
+</div>
+
+
+
+
+
+</div>
+<div id="dockContainer">
+<div id="dockWrapper">
+<div class="cap left"></div>
+<ul class="osx-dock">
+<li class="active">
+<span>ZURB</span>
+<a href="http://www.zurb.com/" title="ZURB"><img alt="Zurb icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/zurb-icon.png"></a>
+</li>
+<li>
+<span>LinkedIn</span>
+<a href="http://www.linkedin.com/" title="LinkedIn"><img alt="Linkedin icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/linkedin-icon.png"></a>
+</li>
+<li>
+<span>Notable</span>
+<a href="http://www.notableapp.com/" title="Notable"><img alt="Notable icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/notable-icon.png"></a>
+</li>
+<li>
+<span>last.fm</span>
+<a href="https://www.last.fm/" title="Last.fm"><img alt="Lastfm icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/lastfm-icon.png"></a>
+</li>
+<li>
+<span>Facebook</span>
+<a href="https://www.facebook.com/" title="Facebook"><img alt="Facebook icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/facebook-icon.png"></a>
+</li>
+<li>
+<span>Google</span>
+<a href="https://www.google.com/" title="Google"><img alt="Google icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/google-icon.png"></a>
+</li>
+<li>
+<span>Notable</span>
+<a href="http://www.notableapp.com/" title="Notable"><img alt="Notable icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/notable-icon.png"></a>
+</li>
+<li class="">
+<span>last.fm</span>
+<a href="https://www.last.fm/" title="Last.fm"><img alt="Lastfm icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/lastfm-icon.png"></a>
+</li>
+<li class="">
+<span>Facebook</span>
+<a href="https://www.facebook.com/" title="Facebook"><img alt="Facebook icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/facebook-icon.png"></a>
+</li>
+<li class="">
+<span>Google</span>
+<a href="https://www.google.com/" title="Google"><img alt="Google icon" src="./Recreating the OS X Dock _ Playground from ZURB_files/google-icon.png"></a>
+</li>
+</ul>
+</div>
+</div>
+
+
+<section class="project-related">
+<div>
+<h2 class="text-center">Check out other Playground experiments</h2>
+<a href="https://zurb.com/playground/css-grid-examples" class="project-related-item">
+<div>
+<img alt="Grid examples thumb" src="./Recreating the OS X Dock _ Playground from ZURB_files/grid-examples-thumb.png">
+<h3>Foundation CSS Grid Examples</h3>
+</div>
+</a>
+<a href="https://zurb.com/playground/css-grid-and-container-queries" class="project-related-item">
+<div>
+ <img alt="Rocket thumb" src="./Recreating the OS X Dock _ Playground from ZURB_files/rocket-thumb.png">
+<h3>Foundation CSS Grid + Container Queries</h3>
+</div>
+</a>
+<a href="https://zurb.com/playground/grids-within-grids" class="project-related-item">
+<div>
+<img alt="Grids thumb" src="./Recreating the OS X Dock _ Playground from ZURB_files/grids-thumb.png">
+<h3>Foundation Grids within Grids</h3>
+</div>
+</a>
+<a href="https://zurb.com/playground/reactive-animation-listener" class="project-related-item">
+<div>
+<img alt="Bg tile reactive" src="./Recreating the OS X Dock _ Playground from ZURB_files/bg-tile-reactive.png">
+<h3>Reactive Animation Listener</h3>
+</div>
+</a>
+</div>
+</section>
+<section id="studiosCallout" class="studios">
+<div class="row expanded">
+<div class="large-4 medium-4 columns">
+<img alt="Startup playground" src="./Recreating the OS X Dock _ Playground from ZURB_files/startup-playground-e4d9bb8be8d5e8ea0878fb420213e38d.svg">
+</div>
+<div class="large-8 medium-8 columns banner-info">
+<div class="property-label">ZURB STUDIOS</div>
+<h3 class="light">Get started with finishing</h3>
+<p class="lead">Team up with our designers to see how our iterative design process can get your project going. Equipped with our Progressive Design process, visual skills, and the coding chops that brought you Foundation, ZURB Studios is ready to jump in and get your product out to the masses!</p>
+<div class="course-buttons">
+<a href="https://zurb.com/studios/getstarted" class="button" data-zcom-event="studios_playground_click" id="playgroundStartupV1">Show Me How →</a>
+</div>
+</div>
+</div>
+</section>
+<div class="zurb-footer-top bg-dgreen">
+<div class="row property">
+<div class="large-4 medium-4 columns">
+<div class="property-info">
+<h2><a class="home" href="https://zurb.com/" title="ZURB">ZURB</a></h2>
+<p><a href="https://zurb.com/about" target="_blank">ZURB</a> is a product design company since 1998. Through consulting, product design tools and training, we transform the way businesses approach product design.</p>
+</div>
+</div>
+<div class="large-8 medium-8 columns">
+<div class="row collapse">
+<div class="large-4 medium-4 columns">
+<div class="learn-links">
+<h4>Want more?</h4>
+<ul>
+<li><a href="https://zurb.com/about/">About</a></li>
+<li><a href="https://zurb.com/services/our-work">Our Work</a></li>
+<li><a href="https://zurb.com/manifesto">Manifesto</a></li>
+<li><a href="https://zurb.com/blog">Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="large-4 medium-4 columns">
+<div class="support-links">
+<h4>Talk to us</h4>
+<p>Call us at <strong>(408) 341-0600</strong></p>
+<p>Not a big talker? Email us at <a href="https://zurb.com/contact">getstarted@zurb.com</a></p>
+</div>
+</div>
+<div class="large-4 medium-4 columns">
+<div class="connect-links">
+<h4>Stay in touch</h4>
+<p>Get monthly updates from ZURB in your inbox. Read our <a href="https://zurb.com/news">latest news &amp; buzz.</a></p>
+<a href="https://zurb.com/news/signup" class="small button">Get ZURBnews!</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="zurb-footer-bottom">
+<div class="row">
+<div class="large-4 push-8 columns">
+<ul class="home-social">
+<li><a href="https://www.twitter.com/ZURB" class="twitter"></a></li>
+<li><a href="https://www.facebook.com/ZURB" class="facebook"></a></li>
+<li><a href="https://zurb.com/contact" class="mail"></a></li>
+</ul>
+</div>
+<div class="large-8 pull-4 columns">
+<a href="https://zurb.com/" class="zurb-logo regular"></a>
+<ul class="zurb-links">
+<li><a href="https://zurb.com/about">About</a></li>
+<li><a href="https://zurb.com/blog">Blog</a></li>
+<li><a href="https://zurb.com/news">News<span class="show-for-medium-up"> &amp; Events</span></a></li>
+<li><a href="https://zurb.com/contact">Contact</a></li>
+<li><a href="https://zurb.com/sitemap">Sitemap</a></li>
+</ul>
+<p class="copyright">© 1998–2020 ZURB, Inc. All rights reserved.</p>
+</div>
+</div>
+</div>
+
+<div id="loginModal" class="reveal-modal medium" data-reveal="">
+<div class="row">
+<div class="large-12 columns">
+<h3>Log in with your ZURB ID</h3>
+</div>
+</div>
+<div class="row">
+<div class="large-7 columns">
+<a href="http://platform.zurb.com/auth/google_oauth2?origin=http%3A%2F%2Fzurb.com%2Fplayground%2Fauth%2Fzurb%2Fcallback%3Forigin%3Dhttp%3A%2F%2Fzurb.com%2Fplayground%2Fosx-dock&amp;application_id=10" class="button expand google-btn">Log in with Google</a>
+<div class="login-separator">
+<span>or</span>
+<hr>
+</div>
+<form accept-charset="UTF-8" action="https://zurb.com/playground/auth/zurb/email" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="gqgBgPlC/teOkjqJpCA9IYfXeWk1am+Al3U9Fn3tvTU="></div>
+<input id="email" name="email" placeholder="Email" type="text">
+<input id="password" name="password" placeholder="Password" type="password">
+<button type="submit" class="expand email-btn">Log in with Email</button>
+</form> <div class="subform-text">
+<p>Don't have a ZURB ID? <a href="https://zurb.com/playground/osx-dock#" data-reveal-id="signupModal">Sign up</a></p>
+<a href="http://platform.zurb.com/reset_password/new?application_id=10" class="forgot">Forgot password?</a>
+</div>
+</div>
+<div class="large-5 columns hide-for-small">
+<div class="account-explained">
+<h4>Your ZURB ID explained</h4>
+<p>You’ll use your ZURB ID to log in to all of ZURB’s properties — University, Products and Foundation. One account to handle it all.</p>
+<div class="parts university">
+<h5>University</h5>
+<p>Product design resources, courses and training.</p>
+</div>
+<div class="parts apps">
+<h5>Design Apps</h5>
+<p>Prototype, iterate and collect feedback on your products.</p>
+</div>
+<div class="parts foundation">
+<h5>Foundation</h5>
+<p>The most advanced front-end framework in the world.</p>
+</div>
+</div>
+</div>
+</div>
+<a class="close-reveal-modal">×</a>
+</div>
+<div id="signupModal" class="reveal-modal medium" data-reveal="">
+<div class="row">
+<div class="large-12 columns">
+<h3>Sign up for a ZURB ID</h3>
+</div>
+</div>
+<div class="row">
+<div class="large-7 columns">
+<a href="http://platform.zurb.com/auth/google_oauth2?origin=http%3A%2F%2Fzurb.com%2Fplayground%2Fauth%2Fzurb%2Fcallback%3Forigin%3Dhttp%3A%2F%2Fzurb.com%2Fplayground%2Fosx-dock&amp;application_id=10" class="button expand google-btn">Sign up with Google</a>
+<div class="login-separator">
+<span>or</span>
+<hr>
+</div>
+<form accept-charset="UTF-8" action="https://zurb.com/playground/auth/register" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="gqgBgPlC/teOkjqJpCA9IYfXeWk1am+Al3U9Fn3tvTU="></div>
+<input id="name" name="name" placeholder="Name" type="text">
+<input id="email" name="email" placeholder="Email" type="text">
+<input id="password" name="password" placeholder="Password" type="password">
+<button type="submit" class="expand email-btn">Sign up with Email</button>
+</form> <div class="subform-text">
+<p>Already have a ZURB ID? <a href="https://zurb.com/playground/osx-dock#" data-reveal-id="loginModal">Log in</a></p>
+</div>
+</div>
+<div class="large-5 columns hide-for-small">
+<div class="account-explained">
+<h4>Your ZURB ID explained</h4>
+<p>You’ll use your ZURB ID to log in to all of ZURB’s properties — University, Products and Foundation. One account to handle it all.</p>
+<div class="parts university">
+<h5>University</h5>
+<p>Product design resources, courses and training.</p>
+</div>
+<div class="parts apps">
+<h5>Design Apps</h5>
+<p>Prototype, iterate and collect feedback on your products.</p>
+</div>
+<div class="parts foundation">
+<h5>Foundation</h5>
+<p>The most advanced front-end framework in the world.</p>
+</div>
+</div>
+</div>
+</div>
+<a class="close-reveal-modal">×</a>
+</div>
+</section>
+
+<section id="sidebar" role="complementary">
+<div class="main-menu show-for-small">
+<h6>ZURB.com</h6>
+<nav id="sideMenu" role="navigation">
+<ul id="sideMainNav" class="nav-bar">
+<li><a href="https://zurb.com/about">About</a></li>
+<li><a href="https://zurb.com/services">Services</a></li>
+<li><a href="https://zurb.com/blog">Blog</a></li>
+<li><a href="https://zurb.com/playground">Sparks</a></li>
+<li><a href="https://zurb.com/soapbox">News &amp; Events</a></li>
+</ul>
+</nav>
+</div>
+<hr class="show-for-small">
+<div class="more-goodness  show-for-small">
+<h6>More ZURB Goodness</h6>
+<nav role="navigation">
+<ul id="sideMainNav" class="nav-bar goodness">
+<li><a href="https://zurb.com/manifesto">Manifesto</a></li>
+<li><a href="https://zurb.com/services/our-work">Our Work</a></li>
+<li><a href="https://zurb.com/university/courses">Product Design Courses</a></li>
+</ul>
+</nav>
+</div>
+<hr class=" show-for-small">
+<br>
+<div class="zurb-links">
+<ul class="top">
+<li class="logo"><a href="https://zurb.com/"><img alt="Zurb logo t" src="./Recreating the OS X Dock _ Playground from ZURB_files/zurb-logo-t-bf307dfc96991d6a48d16b08c5b7a79d.png"></a></li>
+<li><a href="https://zurb.com/about">About</a></li>
+<li><a href="https://zurb.com/blog">Blog</a></li>
+<li><a href="https://zurb.com/contact">Contact</a></li>
+</ul>
+</div>
+</section>
+
+<script src="./Recreating the OS X Dock _ Playground from ZURB_files/application-0b81e31a7e768122f0e094af2ce465c5.js.download"></script>
+<script src="./Recreating the OS X Dock _ Playground from ZURB_files/jquery.offcanvas-dfdfa16f5ba0b8021b5c06352ff48d5b.js.download"></script>
+<script type="text/javascript">
+  	// Place all Javascript code here
+
+		$(document).ready(function(){
+ 			$("ul.osx-dock li").each(function (type) {
+		     	$(this).hover(function () {
+		      		$(this).prev("li").addClass("nearby");
+		      		$(this).next("li").addClass("nearby");
+		     	},
+		     	function () {
+		      		$(this).prev("li").removeClass("nearby");
+		      		$(this).next("li").removeClass("nearby");
+		     	});
+		    });
+		});
+		
+	</script>
+
+
+</body></html>
