@@ -12,7 +12,7 @@ use and set up.
 ### How to use it?
 It is quite easy to use it on your webpage. Just follow the below steps:
 
-1. Include the link to the script file that holds the this custom web component (reveal-box.js) near the bottom of 
+1. Include the link to the script file that holds the this custom web component (osx-dock.js) near the bottom of 
    the body section of your webpage.  See below
    
 ```
@@ -29,7 +29,7 @@ It is quite easy to use it on your webpage. Just follow the below steps:
     </osx-dock>
 ```
 
-Note: That is all you have to do to use this custom element.  There is an example HTML page (acronym.html) that shows how to use it.
+Note: That is all you have to do to use this custom element.  There is an example HTML page (osxdock.html) that shows how to use it.
 
 ```
     <!DOCTYPE html>
