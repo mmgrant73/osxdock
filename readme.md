@@ -12,7 +12,7 @@ use and set up.
 ### How to use it?
 It is quite easy to use it on your webpage. Just follow the below steps:
 
-1. Include the link to the script file that holds the this custom web component (osx-dock.js) near the bottom of 
+1. Include the link to the script file that holds the this custom web component (osxdock.js) near the bottom of 
    the body section of your webpage.  See below
    
 ```
