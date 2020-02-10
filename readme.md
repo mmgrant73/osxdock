@@ -66,7 +66,7 @@ Note: That is all you have to do to use this custom element.  There is an exampl
     </html>
 ```
 
-### There are only four properties that you can use to customize this element.
+### There are only three properties that you can use to customize this element.
 
 There are three attributes that you need to set:
 1. href - is the hyperlink that will become active when a user click on the icon in the dock bar
